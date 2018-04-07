@@ -2,10 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>FreshMvvmStandard</PackageId>
+    <Authors>Batmaci</Authors>
+    <Product>Batmaci</Product>
+    <Description>This package is based on Freshmvvm using .net standard2.0 and some other changes</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.392594-pre3" />
   </ItemGroup>
 
   <ItemGroup>
