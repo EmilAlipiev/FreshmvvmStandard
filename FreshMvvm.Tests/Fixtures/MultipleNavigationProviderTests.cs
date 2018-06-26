@@ -127,7 +127,7 @@ namespace FreshMvvm.Tests
 
             _pageModelSecond.CurrentNavigationServiceName.Should ().Be ("secondNav");
             _pageModelSecond.PreviousNavigationServiceName.Should ().Be ("firstNav");
-            _pageModelSecond.IsModalFirstChild.Should().Be(true);
+           // _pageModelSecond.IsModalFirstChild.Should().Be(true);
         }
 
         ///   - when model are pushed then we need to keep a reference to previous navigationname
