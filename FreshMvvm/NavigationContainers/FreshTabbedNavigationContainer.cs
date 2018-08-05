@@ -3,17 +3,28 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace FreshMvvm
 {
-    public class FreshTabbedNavigationContainer : TabbedPage, IFreshNavigationService
+    public class FreshTabbedNavigationContainer : Xamarin.Forms.TabbedPage, IFreshNavigationService
     {
         List<Page> _tabs = new List<Page>();
         public IEnumerable<Page> TabbedPages { get { return _tabs; } }
 
-        public FreshTabbedNavigationContainer () : this(Constants.DefaultNavigationServiceName)
+        public FreshTabbedNavigationContainer (bool useBottomToolBar=false, Color? barTextColor=null, Color? barBackgroundColor=null) : this(Constants.DefaultNavigationServiceName)
         {				
-            
+            if(useBottomToolBar)
+            {
+                On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            }
+
+            if (barBackgroundColor.HasValue)
+                BarBackgroundColor = barBackgroundColor.Value;
+
+            if (barTextColor.HasValue)
+                BarTextColor = barTextColor.Value;
+       
         }
 
         public FreshTabbedNavigationContainer(string navigationServiceName)
@@ -42,7 +53,7 @@ namespace FreshMvvm
 
         internal Page CreateContainerPageSafe (Page page)
         {
-            if (page is NavigationPage || page is MasterDetailPage || page is TabbedPage)
+            if (page is NavigationPage || page is MasterDetailPage || page is Xamarin.Forms.TabbedPage)
                 return page;
 
             return CreateContainerPage(page);
