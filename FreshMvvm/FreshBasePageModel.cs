@@ -136,21 +136,28 @@ namespace FreshMvvm
 
         public void RaisePageWasPopped()
         {
-            if (PageWasPopped != null)
-                PageWasPopped(this, EventArgs.Empty);
+            try
+            {
+                if (PageWasPopped != null)
+                    PageWasPopped(this, EventArgs.Empty);
 
-            var navPage = (this.CurrentPage.Parent as NavigationPage);
-            if (navPage != null)
-                navPage.Popped -= HandleNavPagePopped;
+                var navPage = (this.CurrentPage.Parent as NavigationPage);
+                if (navPage != null)
+                    navPage.Popped -= HandleNavPagePopped;
 
-            if (_navigationPage != null)
-                _navigationPage.Popped -= HandleNavPagePopped;
+                if (_navigationPage != null)
+                    _navigationPage.Popped -= HandleNavPagePopped;
 
-            _navigationPage = null;
+                _navigationPage = null;
 
-            CurrentPage.Appearing -= ViewIsAppearing;
-            CurrentPage.Disappearing -= ViewIsDisappearing;
-            CurrentPage.BindingContext = null;
+                CurrentPage.Appearing -= ViewIsAppearing;
+                CurrentPage.Disappearing -= ViewIsDisappearing;
+                CurrentPage.BindingContext = null;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }
