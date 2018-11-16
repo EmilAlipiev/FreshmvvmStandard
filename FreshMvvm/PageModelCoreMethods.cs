@@ -273,7 +273,10 @@ namespace FreshMvvm
                 {
                     page.GetModel()?.RaisePageWasPopped ();
                     this._currentPage.Navigation.RemovePage (page);
-                    if (!removeAll)
+                    if (_currentPageModel.PreviousPageModel is TPageModel)
+                        _currentPageModel.PreviousPageModel = null;
+
+                        if (!removeAll)
                         break;
                 }
             }
