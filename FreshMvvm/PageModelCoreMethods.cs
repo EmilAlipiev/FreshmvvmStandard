@@ -95,18 +95,24 @@ namespace FreshMvvm
 
         public async Task PopPageModel (bool modal = false, bool animate = true)
         {
-            string navServiceName = _currentPageModel.CurrentNavigationServiceName;
-            if (_currentPageModel.IsModalFirstChild)
+            try
             {
-                await PopModalNavigationService(animate);
+                string navServiceName = _currentPageModel.CurrentNavigationServiceName;
+                if (_currentPageModel.IsModalFirstChild)
+                {
+                    await PopModalNavigationService(animate);
+                }
+                else
+                {
+                    if (modal)
+                        this._currentPageModel.RaisePageWasPopped();
+
+                    IFreshNavigationService rootNavigation = FreshIOC.Container.Resolve<IFreshNavigationService>(navServiceName);
+                    await rootNavigation.PopPage(modal, animate);
+                }
             }
-            else
-            {
-                if (modal)
-                    this._currentPageModel.RaisePageWasPopped();
-                
-                IFreshNavigationService rootNavigation = FreshIOC.Container.Resolve<IFreshNavigationService> (navServiceName);
-                await rootNavigation.PopPage (modal, animate);                
+            catch (Exception)
+            { 
             }
         }
 
