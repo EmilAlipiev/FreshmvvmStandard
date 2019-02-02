@@ -154,7 +154,7 @@ namespace FreshMvvm
                 CurrentPage.Disappearing -= ViewIsDisappearing;
                 CurrentPage.BindingContext = null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 
             }
