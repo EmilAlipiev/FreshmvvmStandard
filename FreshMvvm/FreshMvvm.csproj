@@ -6,6 +6,10 @@
     <Authors>Batmaci</Authors>
     <Product>Batmaci</Product>
     <Description>This package is based on Freshmvvm using .net standard2.0 and some other changes</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>freshmvvm, mvvm, .net standard, xamarin.forms</PackageTags>
+    <RepositoryUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
