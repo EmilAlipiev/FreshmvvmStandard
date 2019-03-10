@@ -2,20 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>FreshMvvmStandard</id>
-    <version>1.0.1</version>
-    <authors>Batmaci</authors>
-    <owners>Batmaci</owners>
+    <version>1.0.2</version>
+    <authors>Emil Alipiev</authors>
+    <owners>Emil Alipiev</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</projectUrl>
     <description>This package is based on Freshmvvm using .net standard2.0 and some other changes</description>
     <tags>freshmvvm, mvvm, .net standard, xamarin.forms</tags>
     <repository url="https://github.com/EmilAlipiev/FreshmvvmStandard" />
     <dependencies>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="FreshTinyIoC" version="1.0.0" exclude="Build,Analyzers" />
+      <group targetFramework=".NETStandard2.0">       
         <dependency id="NETStandard.Library" version="2.0.3" exclude="Build,Analyzers" />
         <dependency id="Xamarin.Forms" version="3.4.0.1029999" exclude="Build,Analyzers" />
       </group>
-    </dependencies>
-  </metadata>
+    </dependencies>	 
+  </metadata>    
 </package>
