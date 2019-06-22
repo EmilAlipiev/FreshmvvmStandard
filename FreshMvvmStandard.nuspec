@@ -2,21 +2,27 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>FreshMvvmStandard</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
+    <title>FreshMvvmStandard</title>
     <authors>Emil Alipiev</authors>
-    <owners>Emil Alipiev</owners>
+    <owners>EmilAlipiev</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</projectUrl>
-    <description>This package is based on Freshmvvm using .net standard2.0 and some other changes</description>
-    <releaseNotes>Xamarin forms 4.0 update</releaseNotes>
-    <tags>freshmvvm, mvvm, .net standard, xamarin.forms</tags>
-    <repository url="https://github.com/EmilAlipiev/FreshmvvmStandard" />
+    <projectUrl>https://github.com/rid00z/FreshMvvm</projectUrl>
+    <description>FreshMvvmStandard extends and does some changes on Freshmvvm</description>
+    <releaseNotes>xamarin.forms 4 update</releaseNotes>
+    <tags>Mvvm, Xamarin.Forms, FreshMvvm</tags>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="FreshTinyIoC" version="1.0.0" exclude="Build,Analyzers" />
-        <dependency id="NETStandard.Library" version="2.0.3" exclude="Build,Analyzers" />
-        <dependency id="Xamarin.Forms" version="4.0.0.497661" exclude="Build,Analyzers" />
+	     <dependency id="Xamarin.Forms" version="4.0.0.497661" />       
       </group>
     </dependencies>
   </metadata>
+   <files>      
+      <!--PCL-->
+      <file src="FreshMvvm\bin\Release\netstandard2.0\FreshMvvm.dll" target="lib\netstandard2.0" /> 
+	  <file src="FreshMvvm\bin\Release\netstandard2.0\FreshTinyIoC.dll" target="lib\netstandard2.0" />
+	  <file src="FreshMvvm\bin\Release\netstandard2.0\FreshMvvm.pdb" target="lib\netstandard2.0" />
+	  <file src="FreshMvvm\bin\Release\netstandard2.0\FreshTinyIoC.pdb" target="lib\netstandard2.0" />
+	   <file src="FreshMvvm\bin\Release\netstandard2.0\FreshMvvm.deps.json" target="lib\netstandard2.0" />     
+    </files>
 </package>
