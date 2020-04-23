@@ -13,6 +13,8 @@ jobs:
       uses: warrenbuckley/Setup-Nuget@v1
     - name: Restore Nuget
       run: nuget restore  FreshMvvm/FreshMvvm.csproj
+    - name: Restore Nuget 2
+      run: nuget restore  FreshIoC/FreshTinyIoC.csproj
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build with dotnet
