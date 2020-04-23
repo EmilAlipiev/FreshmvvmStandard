@@ -11,9 +11,10 @@
     <PackageTags>freshmvvm, mvvm, .net standard, xamarin.forms</PackageTags>
     <RepositoryUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</RepositoryUrl>
     <PackageProjectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</PackageProjectUrl>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Company>Emil Alipiev</Company>
-    <PackageReleaseNotes>Xamarin forms 4.0 update</PackageReleaseNotes>
+    <PackageReleaseNotes>Custom namespace can be used for Page viewmodel mapping</PackageReleaseNotes>
+    <Copyright>Batmaci</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
