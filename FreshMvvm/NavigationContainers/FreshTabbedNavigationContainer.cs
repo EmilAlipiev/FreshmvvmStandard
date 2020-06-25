@@ -12,7 +12,7 @@ namespace FreshMvvm
     public class FreshTabbedNavigationContainer : Xamarin.Forms.TabbedPage, IFreshNavigationService
     {
         private readonly List<Xamarin.Forms.Page> _tabs = new List<Xamarin.Forms.Page>();
-        public IEnumerable<Xamarin.Forms.Page> TabbedPages { get { return _tabs; } }
+        public IEnumerable<Xamarin.Forms.Page> TabbedPages => _tabs;
 
         public FreshTabbedNavigationContainer(bool useBottomToolBar = false, Color? barTextColor = null, Color? barBackgroundColor = null, bool enableUwpIcons = false, Size headerIconSize = default) : this(Constants.DefaultNavigationServiceName)
         {
