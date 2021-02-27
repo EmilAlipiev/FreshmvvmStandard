@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace FreshMvvm
 {
-    public class FreshMasterDetailNavigationContainer : Xamarin.Forms.MasterDetailPage, IFreshNavigationService
+    public class FreshMasterDetailNavigationContainer : FlyoutPage, IFreshNavigationService
     {
         List<Page> _pagesInner = new List<Page>();
         Dictionary<string, Page> _pages = new Dictionary<string, Page>();
@@ -53,7 +53,7 @@ namespace FreshMvvm
 
         internal Page CreateContainerPageSafe(Page page)
         {
-            if (page is NavigationPage || page is MasterDetailPage || page is TabbedPage)
+            if (page is NavigationPage || page is FlyoutPage || page is TabbedPage)
                 return page;
 
             return CreateContainerPage(page);
@@ -88,7 +88,7 @@ namespace FreshMvvm
             if (!string.IsNullOrEmpty(menuIcon))
                 navPage.IconImageSource = menuIcon;
 
-            Master = navPage;
+            Flyout = navPage;
         }
 
         public Task PushPage(Page page, FreshBasePageModel model, bool modal = false, bool animate = true)
@@ -114,22 +114,22 @@ namespace FreshMvvm
 
         public void NotifyChildrenPageWasPopped()
         {
-            if (Master is NavigationPage)
-                ((NavigationPage)Master).NotifyAllChildrenPopped();
-            if (Master is IFreshNavigationService)
-                ((IFreshNavigationService)Master).NotifyChildrenPageWasPopped();
+            if (Flyout is NavigationPage flyoutpage)
+                flyoutpage.NotifyAllChildrenPopped();
+            if (Flyout is IFreshNavigationService service)
+                service.NotifyChildrenPageWasPopped();
 
             foreach (var page in this.Pages.Values)
             {
-                if (page is NavigationPage)
-                    ((NavigationPage)page).NotifyAllChildrenPopped();
-                if (page is IFreshNavigationService)
-                    ((IFreshNavigationService)page).NotifyChildrenPageWasPopped();
+                if (page is NavigationPage navigationPage)
+                    navigationPage.NotifyAllChildrenPopped();
+                if (page is IFreshNavigationService pageService)
+                    pageService.NotifyChildrenPageWasPopped();
             }
-            if (this.Pages != null && !this.Pages.ContainsValue(Detail) && Detail is NavigationPage)
-                ((NavigationPage)Detail).NotifyAllChildrenPopped();
-            if (this.Pages != null && !this.Pages.ContainsValue(Detail) && Detail is IFreshNavigationService)
-                ((IFreshNavigationService)Detail).NotifyChildrenPageWasPopped();
+            if (Pages != null && !this.Pages.ContainsValue(Detail) && Detail is NavigationPage detailPage)
+                detailPage.NotifyAllChildrenPopped();
+            if (Pages != null && !this.Pages.ContainsValue(Detail) && Detail is IFreshNavigationService detailService)
+                detailService.NotifyChildrenPageWasPopped();
         }
 
         public Task<FreshBasePageModel> SwitchSelectedRootPageModel<T>() where T : FreshBasePageModel
