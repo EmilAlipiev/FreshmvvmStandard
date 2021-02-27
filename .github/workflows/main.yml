@@ -4,6 +4,7 @@ on:
  push:
    branches: 
      - master
+     - XF5.0
 jobs:
   build:
     runs-on: windows-latest
