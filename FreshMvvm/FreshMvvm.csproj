@@ -1,53 +1,53 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
-    <PackageId>FreshMvvmStandard</PackageId>
-    <Authors>Emil Alipiev</Authors>
-    <Product>Emil Alipiev</Product>
-    <Description>This package is based on Freshmvvm using .net standard2.0 and some other changes</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>freshmvvm, mvvm, .net standard, xamarin.forms</PackageTags>
-    <RepositoryUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</PackageProjectUrl>
-    <Version>1.1.4</Version>
-    <Company>Emil Alipiev</Company>
-    <PackageReleaseNotes>Custom namespace can be used for Page viewmodel mapping</PackageReleaseNotes>
-    <Copyright>Batmaci</Copyright>
-    <Copyright>Copyright 2019</Copyright>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
+		<PackageId>FreshMvvmStandard</PackageId>
+		<Authors>Emil Alipiev</Authors>
+		<Product>Emil Alipiev</Product>
+		<Description>This package is based on Freshmvvm using .net standard2.0 and some other changes</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageTags>freshmvvm, mvvm, .net standard, xamarin.forms</PackageTags>
+		<RepositoryUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/EmilAlipiev/FreshmvvmStandard</PackageProjectUrl>
+		<Version>2.0.0</Version>
+		<Company>Emil Alipiev</Company>
+		<PackageReleaseNotes>XF 5.0 update with mastedetailpage to flyoutpage renamed</PackageReleaseNotes>
+		<Copyright>Batmaci</Copyright>
+		<Copyright>Copyright 2019</Copyright>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="FreshMvvmStandard.nuspec" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="FreshMvvmStandard.nuspec" />
+	</ItemGroup>
 
-  <PropertyGroup>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+	<PropertyGroup>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FreshIOC\FreshTinyIoC.csproj" ExcludeAssets="All"  />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FreshIOC\FreshTinyIoC.csproj" ExcludeAssets="All" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NETStandard.Library" Version="2.0.3" />
+	</ItemGroup>
 
-  <Target Name="IncludeP2PAssets">
-    <ItemGroup>
-      <BuildOutputInPackage Include="..\FreshIOC\bin\Release\netstandard2.0\FreshTinyIoC.dll" />
-    </ItemGroup>
-  </Target>
-  
+	<Target Name="IncludeP2PAssets">
+		<ItemGroup>
+			<BuildOutputInPackage Include="..\FreshIOC\bin\Release\netstandard2.0\FreshTinyIoC.dll" />
+		</ItemGroup>
+	</Target>
+
 </Project>
